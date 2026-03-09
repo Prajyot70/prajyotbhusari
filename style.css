@@ -1,0 +1,602 @@
+
+/* =========================================
+   1. CORE VARIABLES & RESETS
+   ========================================= */
+:root {
+    --bg-color: #121212;
+    --text-color: #ffffff;
+    --accent-color: #00ff00; /* Cyber Green */
+    --nav-bg: rgba(18, 18, 18, 0.7);
+}
+
+.light-mode {
+    --bg-color: #f4f4f4;
+    --text-color: #121212;
+    --accent-color: #00aa00;
+    --nav-bg: rgba(244, 244, 244, 0.8);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+    cursor: none; /* Hides default cursor for the custom green dot */
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background 0.3s, color 0.3s;
+    overflow-x: hidden;
+}
+
+/* =========================================
+   2. GLOBAL COMPONENTS & ANIMATIONS
+   ========================================= */
+
+/* Custom Cursor */
+.cursor {
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--accent-color);
+    border-radius: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    z-index: 9999;
+    transition: width 0.2s, height 0.2s, background-color 0.2s;
+}
+
+/* Scroll Reveal Animation */
+.reveal {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.8s ease-out;
+}
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Global Buttons */
+.btn {
+    padding: 12px 24px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    display: inline-block;
+    transition: all 0.3s ease;
+}
+
+.primary-btn {
+    background-color: var(--accent-color);
+    color: #121212;
+}
+
+.secondary-btn {
+    background-color: transparent;
+    color: var(--accent-color);
+    border: 2px solid var(--accent-color);
+    margin-left: 15px;
+}
+
+.btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 255, 0, 0.4);
+}
+
+.btn-sm {
+    padding: 10px 18px;
+    font-size: 0.9rem;
+    align-self: flex-start;
+    margin-left: 0;
+}
+
+/* =========================================
+   3. NAVIGATION & FOOTER
+   ========================================= */
+
+/* Glassmorphism Header */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    background: var(--nav-bg);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+}
+
+.nav-links a {
+    color: var(--text-color);
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover, .nav-links a.active {
+    color: var(--accent-color);
+}
+
+/* Reactive Theme Toggle Icon */
+#theme-toggle {
+    background: none;
+    border: none;
+    color: var(--text-color);
+    font-size: 1.4rem;
+    cursor: none;
+    transition: color 0.3s ease;
+    margin-left: 20px;
+}
+
+#theme-toggle:hover {
+    color: var(--accent-color);
+}
+
+/* Footer */
+footer { 
+    text-align: center; 
+    padding: 40px; 
+    background: rgba(0,0,0,0.2); 
+    margin-top: 50px;
+}
+
+/* Round Social Media Icon Buttons */
+.social-btn {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%; 
+    background-color: transparent;
+    color: var(--text-color);
+    border: 2px solid var(--text-color);
+    font-size: 1.5rem;
+    margin: 0 10px 20px 10px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.social-btn:hover {
+    background-color: var(--accent-color);
+    color: #121212;
+    border-color: var(--accent-color);
+    transform: translateY(-5px); 
+    box-shadow: 0 5px 15px rgba(0, 255, 0, 0.4); 
+}
+
+/* =========================================
+   4. PAGE LAYOUTS (Inner Pages)
+   ========================================= */
+
+.page-section {
+    padding: 150px 10% 80px 10%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+}
+
+.content-container {
+    max-width: 900px;
+    width: 100%;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    color: var(--text-color);
+    border-bottom: 2px solid var(--accent-color);
+    padding-bottom: 10px;
+    display: inline-block;
+}
+
+.sub-heading {
+    font-size: 1.8rem;
+    margin: 40px 0 20px 0;
+    color: var(--text-color);
+}
+
+/* =========================================
+   5. HOME PAGE STYLING
+   ========================================= */
+
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100vh;
+    padding: 0 10%;
+}
+
+.hero h1 { font-size: 3rem; margin-bottom: 10px; }
+.hero h2 { font-size: 1.5rem; color: var(--accent-color); margin-bottom: 20px; }
+.hero p { font-size: 1rem; margin-bottom: 30px; line-height: 1.6; max-width: 600px; }
+
+.hero-image img {
+    max-width: 400px;
+    height: auto;
+    object-fit: contain;
+}
+
+/* =========================================
+   6. ABOUT PAGE STYLING
+   ========================================= */
+
+.about-text p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 25px;
+    color: var(--text-color);
+    opacity: 0.9;
+}
+
+.action-row {
+    margin-top: 40px;
+}
+
+/* =========================================
+   7. EXPERTISE PAGE STYLING
+   ========================================= */
+
+/* Skills Pill Tags */
+.skills-cluster {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 50px;
+}
+
+.skill-tag {
+    padding: 8px 16px;
+    border: 1px solid var(--accent-color);
+    border-radius: 50px;
+    color: var(--text-color);
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+}
+
+.skill-tag:hover {
+    background-color: var(--accent-color);
+    color: #121212;
+    transform: translateY(-3px);
+}
+
+/* Technical Tools Grid */
+.tools-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+}
+
+.tool-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 30px 20px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.tool-card:hover {
+    border-color: var(--accent-color);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+.tool-icon {
+    max-height: 55px;  
+    max-width: 55px;
+    object-fit: contain;
+    margin-bottom: 15px;
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.tool-card h3 {
+    font-size: 1.2rem;
+    color: var(--text-color);
+    margin-bottom: 10px;
+}
+
+.card-hover-text {
+    position: absolute;
+    bottom: -100%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(18, 18, 18, 0.95);
+    backdrop-filter: blur(5px);
+    color: var(--accent-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    font-size: 0.95rem;
+    text-align: center;
+    transition: bottom 0.4s ease;
+}
+
+.tool-card:hover .card-hover-text {
+    bottom: 0;
+}
+
+/* =========================================
+   8. PROJECTS PAGE STYLING
+   ========================================= */
+
+.projects-container {
+    max-width: 1100px;
+}
+
+/* Base Card Styling */
+.project-card {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.project-card:hover {
+    border-color: var(--accent-color);
+    box-shadow: 0 10px 25px rgba(0, 255, 0, 0.15);
+    transform: translateY(-5px);
+}
+
+.project-info {
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.project-info h2 {
+    font-size: 1.5rem;
+    color: var(--text-color);
+    margin-bottom: 10px;
+}
+
+.project-meta {
+    font-size: 0.9rem;
+    color: #aaaaaa;
+    margin-bottom: 15px;
+}
+
+.project-meta i {
+    color: var(--accent-color);
+    margin-right: 5px;
+}
+
+/* Tech Stack Tags */
+.tech-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.tech-stack span {
+    background: rgba(0, 255, 0, 0.1);
+    color: var(--accent-color);
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+/* Bullet Points */
+.project-bullets {
+    list-style-type: none;
+    margin-bottom: 25px;
+    flex-grow: 1;
+}
+
+.project-bullets li {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 10px;
+    position: relative;
+    padding-left: 20px;
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.project-bullets li::before {
+    content: "▹";
+    position: absolute;
+    left: 0;
+    color: var(--accent-color);
+    font-weight: bold;
+}
+
+/* Featured Project Layout */
+.featured-project {
+    flex-direction: row;
+    margin-bottom: 40px;
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.project-image-container {
+    flex: 1;
+    min-height: 300px;
+    background-color: #1a1a1a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.project-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+}
+
+.project-card:hover .project-img {
+    opacity: 1;
+}
+
+.featured-project .project-info {
+    flex: 1.2;
+}
+
+/* Standard Projects Grid */
+.standard-projects-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+}
+
+/* =========================================
+   9. CONTACT PAGE STYLING
+   ========================================= */
+
+.contact-container {
+    text-align: center;
+    max-width: 800px;
+}
+
+.contact-intro {
+    font-size: 1.15rem;
+    line-height: 1.8;
+    margin-bottom: 50px;
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.direct-contact-info {
+    margin-bottom: 60px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 30px;
+    display: inline-block;
+}
+
+.direct-contact-info p {
+    font-size: 1.4rem;
+    font-weight: 500;
+    margin: 15px 0;
+    color: var(--text-color);
+}
+
+.contact-quick-links {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.huge-social-btn {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: transparent;
+    color: var(--text-color);
+    border: 2px solid var(--text-color);
+    font-size: 2.2rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.huge-social-btn:hover {
+    background-color: var(--accent-color);
+    color: #121212;
+    border-color: var(--accent-color);
+    transform: translateY(-8px);
+    box-shadow: 0 10px 25px rgba(0, 255, 0, 0.4);
+}
+
+/* =========================================
+   10. MOBILE RESPONSIVENESS (MEDIA QUERIES)
+   ========================================= */
+@media screen and (max-width: 768px) {
+    /* Global Nav & Cursor */
+    .navbar {
+        flex-direction: column;
+        padding: 15px;
+        gap: 15px;
+    }
+    .nav-links {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+    .nav-links a {
+        margin: 0 5px;
+        font-size: 0.9rem;
+    }
+    #theme-toggle {
+        margin-left: 0;
+        margin-top: 5px;
+    }
+    .cursor { display: none !important; }
+    * { cursor: auto; }
+
+    /* Home Page Hero */
+    .hero {
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        height: auto;
+        padding: 140px 5% 50px 5%;
+    }
+    .hero-content { order: 2; }
+    .hero-image { order: 1; margin-bottom: 30px; }
+    .hero h1 { font-size: 2.2rem; }
+    .hero h2 { font-size: 1.2rem; }
+    .hero p { font-size: 0.95rem; margin: 0 auto 30px auto; }
+    .hero-image img { max-width: 250px; }
+    .btn { display: block; width: 100%; margin: 10px 0; }
+    .secondary-btn { margin-left: 0; }
+
+    /* Page Titles & Layout */
+    .page-section {
+        padding: 150px 5% 50px 5%;
+    }
+    .section-title {
+        font-size: 2rem;
+    }
+
+    /* Projects Page */
+    .featured-project {
+        flex-direction: column;
+    }
+    .project-image-container {
+        min-height: 200px;
+    }
+    .standard-projects-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Contact Page */
+    .direct-contact-info {
+        width: 100%;
+        padding: 20px 10px;
+    }
+    .direct-contact-info p {
+        font-size: 1.1rem;
+    }
+    .contact-quick-links {
+        gap: 15px;
+    }
+    .huge-social-btn {
+        width: 60px;
+        height: 60px;
+        font-size: 1.6rem;
+    }
+}

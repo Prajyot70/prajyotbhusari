@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects & Research | Prajyot Bhusari</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="images/favicon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="cursor"></div>
+
+    <header class="navbar">
+        <div class="logo">
+            <a href="index.html"><img src="images/logo.png" alt="PB Logo" height="40"></a>
+        </div>
+        <nav class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="about.html">About Me</a>
+            <a href="expertise.html">Expertise</a>
+            <a href="projects.html" class="active">Projects</a>
+            <a href="contact.html">Contact Me</a>
+            <button id="theme-toggle"><i class="fa-solid fa-moon"></i></button>
+        </nav>
+    </header>
+
+    <section class="page-section reveal">
+        <div class="content-container projects-container">
+            <h1 class="section-title">Projects & Research</h1>
+
+            <div class="project-card featured-project">
+                <div class="project-image-container">
+                    <img src="images/ev-project.jpg" alt="EV Fault Detection System" class="project-img">
+                </div>
+                <div class="project-info">
+                    <h2>Electric Vehicle With AI Based Fault Detection</h2>
+                    <div class="project-meta">
+                        <span class="timeline"><i class="fa-regular fa-calendar"></i> Aug 2025 - May 2026</span>
+                    </div>
+                    <div class="tech-stack">
+                        <span>ESP32</span><span>C++</span><span>Arduino IDE</span><span>Sensors</span><span>BLDC Motor</span><span>EV Controller</span><span>Battery</span>
+                    </div>
+                    <ul class="project-bullets">
+                        <li>Developing a real-time fault detection system for EV powertrains to monitor current, vibration, and temperature parameters.</li>
+                        <li>Implementing preventive control logic to identify overload, overheating, and bearing vibration faults to enhance vehicle safety and component longevity.</li>
+                        <li>Integrating sensor data with the dashboard display for real-time diagnostics, showcasing hardware-software integration.</li>
+                    </ul>
+                    <a href="#" class="btn primary-btn btn-sm"><i class="fa-regular fa-file-code"></i> View Architecture & Code</a>
+                </div>
+            </div>
+
+            <div class="standard-projects-grid">
+                
+                <div class="project-card">
+                    <div class="project-info">
+                        <h2>Class-D Amplifier</h2>
+                        <div class="project-meta">
+                            <span class="timeline"><i class="fa-regular fa-calendar"></i> Aug 2024 - Nov 2024</span>
+                        </div>
+                        <div class="tech-stack">
+                            <span>555 Timers</span><span>LM358 Op-Amps</span><span>IR2110</span><span>IRF640 MOSFETs</span>
+                        </div>
+                        <ul class="project-bullets">
+                            <li>Designed a high-efficiency PWM generation circuit focusing on signal fidelity and analog circuit fundamentals.</li>
+                            <li>Engineered the power stage ensuring robust switching performance and thermal management.</li>
+                            <li>Designed and simulated a low-pass filter to match specific load requirements, effectively reducing THD and optimizing audio output.</li>
+                        </ul>
+                        <a href="#" class="btn secondary-btn btn-sm"><i class="fa-solid fa-microchip"></i> View Schematics & Design</a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-info">
+                        <h2>Electric Vehicle Wireless Charger</h2>
+                        <div class="project-meta">
+                            <span class="timeline"><i class="fa-regular fa-calendar"></i> Aug 2023 - Nov 2023</span>
+                        </div>
+                        <div class="tech-stack">
+                            <span>DC-to-AC Converter</span><span>Bridge Rectifier</span><span>Oscilloscope</span>
+                        </div>
+                        <ul class="project-bullets">
+                            <li>Conducted R&D on coil materials and magnetic structures to maximize coupling efficiency for wireless power transmission.</li>
+                            <li>Designed and simulated a DC-to-AC converter and bridge rectifier circuit, using an oscilloscope and multimeter for validation.</li>
+                            <li>Optimized the regulation circuit for safe wireless power transfer by applying first principles of electromagnetics.</li>
+                        </ul>
+                        <a href="#" class="btn secondary-btn btn-sm"><i class="fa-solid fa-bolt"></i> View Circuitry & Testing</a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-info">
+                        <h2>DC Motor Performance With/Without PID Controller</h2>
+                        <div class="project-meta">
+                            <span class="timeline"><i class="fa-regular fa-calendar"></i> June 2025</span>
+                        </div>
+                        <div class="tech-stack">
+                            <span>MATLAB</span><span>Simulink</span><span>Control Systems</span>
+                        </div>
+                        <ul class="project-bullets">
+                            <li>Authored a technical research paper analyzing the dynamic performance of DC motors under various conditions.</li>
+                            <li>Built complex mathematical models in MATLAB Simulink to compare standard motor operation against a system governed by a PID controller.</li>
+                        </ul>
+                        <a href="#" class="btn secondary-btn btn-sm"><i class="fa-solid fa-link"></i> Read Full Paper</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-links">
+            <a href="mailto:prajyotbhusari70@gmail.com" class="social-btn"><i class="fa-solid fa-envelope"></i></a>
+            <a href="https://wa.me/919637657172" target="_blank" class="social-btn"><i class="fa-brands fa-whatsapp"></i></a>
+            <a href="https://linkedin.com/in/prajyotbhusari" target="_blank" class="social-btn"><i class="fa-brands fa-linkedin-in"></i></a>
+        </div>
+        <p>&copy; 2026 Prajyot Bhusari. All Rights Reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
